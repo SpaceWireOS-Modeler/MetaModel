@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (C) 2016 Monami-ya LLC, Japan
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SpaceWire -->
+      <package
+            uri="http://www.pizzafactory.jp/SpaceWire/ChannelInfo"
+            class="jp.pizzafactory.model.spacewireos.channelinfo.ChannelInfoPackage"
+            genModel="model/SpaceWire.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated SpaceWire -->
+      <parser
+            type="swosci"
+            class="jp.pizzafactory.model.spacewireos.channelinfo.util.ChannelInfoResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SpaceWire -->
+      <package
+            uri="http://www.pizzafactory.jp/SpaceWire/NetworkTopology"
+            class="jp.pizzafactory.model.spacewireos.networkTopology.NetworkTopologyPackage"
+            genModel="model/SpaceWire.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated SpaceWire -->
+      <parser
+            type="swosnt"
+            class="jp.pizzafactory.model.spacewireos.networkTopology.util.NetworkTopologyResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

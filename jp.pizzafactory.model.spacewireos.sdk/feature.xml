@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="jp.pizzafactory.model.spacewireos.sdk"
+      label="BASIC SDK for SpaceWireOS"
+      version="0.0.1.qualifier">
+
+   <description url="http://www.example.com/description">
+      BASIC SDK for SpaceWireOS
+   </description>
+
+   <copyright url="http://www.monami-ya.jp/">
+      Copyright (C) 2016 Monami-ya LLC, Japan
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="jp.pizzafactory.model.spacewireos"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jp.pizzafactory.model.spacewireos.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jp.pizzafactory.model.spacewireos.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jp.pizzafactory.model.spacewireos.resources"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

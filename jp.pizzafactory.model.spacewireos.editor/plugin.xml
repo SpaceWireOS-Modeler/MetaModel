@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (C) 2016 Monami-ya LLC, Japan
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SpaceWire -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.pizzafactory.model.spacewireos.channelinfo.presentation.ChannelInfoModelWizardID"
+            name="%_UI_ChannelInfoModelWizard_label"
+            class="jp.pizzafactory.model.spacewireos.channelinfo.presentation.ChannelInfoModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ChannelInfoModelFile.gif">
+         <description>%_UI_ChannelInfoModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SpaceWire -->
+      <editor
+            id="jp.pizzafactory.model.spacewireos.channelinfo.presentation.ChannelInfoEditorID"
+            name="%_UI_ChannelInfoEditor_label"
+            icon="icons/full/obj16/ChannelInfoModelFile.gif"
+            extensions="swosci"
+            class="jp.pizzafactory.model.spacewireos.channelinfo.presentation.ChannelInfoEditor"
+            contributorClass="jp.pizzafactory.model.spacewireos.channelinfo.presentation.ChannelInfoActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SpaceWire -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.pizzafactory.model.spacewireos.networkTopology.presentation.NetworkTopologyModelWizardID"
+            name="%_UI_NetworkTopologyModelWizard_label"
+            class="jp.pizzafactory.model.spacewireos.networkTopology.presentation.NetworkTopologyModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/NetworkTopologyModelFile.gif">
+         <description>%_UI_NetworkTopologyModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SpaceWire -->
+      <editor
+            id="jp.pizzafactory.model.spacewireos.networkTopology.presentation.NetworkTopologyEditorID"
+            name="%_UI_NetworkTopologyEditor_label"
+            icon="icons/full/obj16/NetworkTopologyModelFile.gif"
+            extensions="swosnt"
+            class="jp.pizzafactory.model.spacewireos.networkTopology.presentation.NetworkTopologyEditor"
+            contributorClass="jp.pizzafactory.model.spacewireos.networkTopology.presentation.NetworkTopologyActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

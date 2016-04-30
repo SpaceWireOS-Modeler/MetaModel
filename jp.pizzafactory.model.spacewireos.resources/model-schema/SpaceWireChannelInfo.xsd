@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.pizzafactory.jp/SpaceWire/ChannelInfo" xmlns:tns="http://www.pizzafactory.jp/SpaceWire/NetworkTopology" elementFormDefault="qualified" xmlns:swci="http://www.pizzafactory.jp/SpaceWire/ChannelInfo">
+
+    <element name="SpaceWireChannelInfo"
+    	type="swci:SpaceWireChannelInfo"/>
+    
+    <complexType name="SpaceWireChannelInfo">
+    	<sequence maxOccurs="unbounded" minOccurs="0">
+    		<element name="Channel" type="swci:Channel"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="Channel">
+    	<sequence>
+    		<element name="Source" type="swci:Source"></element>
+    		<element name="Destination" type="swci:Destination"></element>
+    		<element name="Packet" type="swci:Packet" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="Id" type="ID"></attribute>
+    </complexType>
+
+    <complexType name="Source">
+    	<attribute name="Id" type="ID"></attribute>
+    </complexType>
+
+    <complexType name="Destination">
+    	<sequence>
+    		<element name="Path" type="swci:Path" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="Id" type="ID"></attribute>
+    	<attribute name="Redundancy" type="int"></attribute>
+    </complexType>
+    
+    <complexType name="Packet">
+    	<sequence>
+    		<element name="Timeslot" type="swci:Timeslot" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="Id" type="ID"></attribute>
+    	<attribute name="Type" type="swci:PacketType"></attribute>
+    	<attribute name="Reply" type="boolean"></attribute>
+    	<attribute name="Cargosize" type="int"></attribute>
+    	<attribute name="Period" type="int"></attribute>
+    </complexType>
+
+    <simpleType name="PacketType">
+    	<restriction base="string">
+    		<enumeration value="RMAP-W"/>
+    		<enumeration value="RMAP-R"/>
+    	</restriction>
+    </simpleType>
+    
+    <complexType name="Path">
+    	<sequence>
+    		<element name="Link" type="swci:Link" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    	<attribute name="Id" type="ID"></attribute>
+    </complexType>
+
+    <complexType name="Link">
+    	<attribute name="Id" type="ID"></attribute>
+    </complexType>
+
+    <complexType name="Timeslot">
+    	<attribute name="Number" type="int"></attribute>
+    </complexType>
+</schema>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.pizzafactory.jp/SpaceWire/NetworkTopology"
+	xmlns:swnt="http://www.pizzafactory.jp/SpaceWire/NetworkTopology"
+	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+	elementFormDefault="qualified">
+
+    <element name="SpaceWireNetworkTopology"
+    	type="swnt:SpaceWireNetworkTopology" />
+
+    <complexType name="SpaceWireNetworkTopology">
+    	<sequence>
+    		<element name="Subnet" type="swnt:Subnet" maxOccurs="unbounded" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Subnet">
+    	<sequence>
+    		<element name="FDIR" type="swnt:FDIR"/>
+    		<element name="Timeslot" type="swnt:Timeslot"/>
+    		<element name="Router" type="swnt:Router" maxOccurs="unbounded" minOccurs="0"/>
+    		<element name="Node" type="swnt:Node" maxOccurs="unbounded" minOccurs="0"/>
+    		<element name="Link" type="swnt:Link" maxOccurs="unbounded" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Link">
+    	<sequence>
+    		<element name="Endpoint1" type="swnt:Endpoint"/>
+    		<element name="Endpoint2" type="swnt:Endpoint"/>
+    	</sequence>
+    	<attribute name="Id" type="ID"/>
+    	<attribute name="Speed" type="int"/>
+    	<attribute name="NetworkPropagationDelay" type="int"/>
+    </complexType>
+
+    <complexType name="FDIR">
+    	<attribute name="IntervalTime" type="int"/>
+    </complexType>
+
+    <complexType name="Timeslot">
+    	<attribute name="Number" type="int"/>
+    	<attribute name="SlotTime" type="int"/>
+    </complexType>
+
+	<complexType name="Port">
+		<attribute name="Number" type="swnt:PortNumber"/>
+	</complexType>
+
+	<complexType name="Device" abstract="true">
+        <attribute name="Id" type="swnt:DeviceId"/>
+	</complexType>
+
+    <complexType name="Router">
+    	<complexContent>
+    		<extension base="swnt:Device">
+		    	<sequence>
+		    		<element name="Port" type="swnt:Port" maxOccurs="unbounded" minOccurs="0"/>
+		    	</sequence>
+		    	<attribute name="NetworkPropagationDelay" type="int"/>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Node">
+    	<complexContent>
+    		<extension base="swnt:Device">
+		    	<sequence>
+		    		<element name="Port" type="swnt:NodePort" maxOccurs="unbounded" minOccurs="0"/>
+		    	</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="NodePort">
+    	<complexContent>
+    		<extension base="swnt:Port">
+		        <attribute name="LogicalAddress" type="swnt:HexInt" />
+		    	<attribute name="Key" type="swnt:HexInt" />
+	    	</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Endpoint">
+    	<attribute name="Id" type="swnt:DeviceId" />
+    	<attribute name="Port" type="swnt:PortNumber"/>
+    </complexType>
+    
+    <simpleType name="PortNumber">
+    	<restriction base="int"/>
+    </simpleType>
+
+	<simpleType name="PortId">
+		<restriction base="string"/>
+	</simpleType>
+
+	<simpleType name="DeviceId">
+		<restriction base="string"/>
+	</simpleType>
+
+	<simpleType name="HexInt">
+		<union memberTypes="unsignedInt">
+			<simpleType>
+				<restriction base="token">
+					<pattern value="0x[0-9A-Fa-f]+"/>
+				</restriction>
+			</simpleType>
+		</union>
+	</simpleType>
+</schema>

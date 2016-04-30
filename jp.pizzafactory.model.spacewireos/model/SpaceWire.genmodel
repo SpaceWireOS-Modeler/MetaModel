@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (C) 2016 Monami-ya LLC, Japan" modelDirectory="/jp.pizzafactory.model.spacewireos/src"
+    modelPluginID="jp.pizzafactory.model.spacewireos" modelName="SpaceWire" editPluginClass="jp.pizzafactory.model.spacewireos.edit.provider.SpaceWireEditPlugin"
+    editorPluginClass="jp.pizzafactory.model.spacewireos.presentation.SpaceWireEditorPlugin"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testSuiteClass="jp.pizzafactory.model.spacewireos.tests.SpaceWireAllTests" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="8.0" operationReflection="true" importOrganizing="true" oSGiCompatible="true">
+  <foreignModel>../../jp.pizzafactory.model.spacewireos.resources/model-schema/SpaceWireChannelInfo.xsd</foreignModel>
+  <foreignModel>../../jp.pizzafactory.model.spacewireos.resources/model-schema/SpaceWireNetworkTopology.xsd</foreignModel>
+  <genPackages prefix="ChannelInfo" basePackage="jp.pizzafactory.model.spacewireos"
+      resource="XML" disposableProviderFactory="true" fileExtensions="swosci" ecorePackage="info.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="info.ecore#//PacketType">
+      <genEnumLiterals ecoreEnumLiteral="info.ecore#//PacketType/RMAPW"/>
+      <genEnumLiterals ecoreEnumLiteral="info.ecore#//PacketType/RMAPR"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="info.ecore#//PacketTypeObject"/>
+    <genClasses ecoreClass="info.ecore#//Channel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Channel/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Channel/destination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Channel/packet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Channel/id"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Destination">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Destination/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Destination/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Destination/redundancy"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference info.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference info.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//DocumentRoot/spaceWireChannelInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Link/id"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Packet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Packet/timeslot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Packet/cargosize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Packet/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Packet/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Packet/reply"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Packet/type"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Path">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference info.ecore#//Path/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Path/id"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Source">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Source/id"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//SpaceWireChannelInfo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute info.ecore#//SpaceWireChannelInfo/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference info.ecore#//SpaceWireChannelInfo/channel"/>
+    </genClasses>
+    <genClasses ecoreClass="info.ecore#//Timeslot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute info.ecore#//Timeslot/number"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="NetworkTopology" basePackage="jp.pizzafactory.model.spacewireos"
+      resource="XML" disposableProviderFactory="true" fileExtensions="swosnt" ecorePackage="topology.ecore#/">
+    <genDataTypes ecoreDataType="topology.ecore#//DeviceId"/>
+    <genDataTypes ecoreDataType="topology.ecore#//HexInt"/>
+    <genDataTypes ecoreDataType="topology.ecore#//HexIntMember1"/>
+    <genDataTypes ecoreDataType="topology.ecore#//PortId"/>
+    <genDataTypes ecoreDataType="topology.ecore#//PortNumber"/>
+    <genDataTypes ecoreDataType="topology.ecore#//PortNumberObject"/>
+    <genClasses image="false" ecoreClass="topology.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Device/id"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference topology.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference topology.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//DocumentRoot/spaceWireNetworkTopology"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Endpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Endpoint/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Endpoint/port"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//FDIR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//FDIR/intervalTime"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Link">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Link/endpoint1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Link/endpoint2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Link/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Link/networkPropagationDelay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Link/speed"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Node/port"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//NodePort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//NodePort/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//NodePort/logicalAddress"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="topology.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Port/number"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Router">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Router/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Router/networkPropagationDelay"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//SpaceWireNetworkTopology">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//SpaceWireNetworkTopology/subnet"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Subnet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Subnet/fDIR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Subnet/timeslot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Subnet/router"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Subnet/node"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference topology.ecore#//Subnet/link"/>
+    </genClasses>
+    <genClasses ecoreClass="topology.ecore#//Timeslot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Timeslot/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute topology.ecore#//Timeslot/slotTime"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

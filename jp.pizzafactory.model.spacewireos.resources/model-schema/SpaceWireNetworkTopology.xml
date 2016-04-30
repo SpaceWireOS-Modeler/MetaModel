@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swnt:SpaceWireNetworkTopology xmlns:swnt="http://www.pizzafactory.jp/SpaceWire/NetworkTopology" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pizzafactory.jp/SpaceWire/NetworkTopology SpaceWireNetworkTopology.xsd ">
+  <swnt:Subnet>
+    <swnt:FDIR IntervalTime="0"/>
+    <swnt:Timeslot Number="0" SlotTime="0"/>
+    <swnt:Router NetworkPropagationDelay="0" swnt:Id="">
+      <swnt:Port LogicalAddress="0F00" key="0F00" swnt:Number="0"/>
+    </swnt:Router>
+    <swnt:Node swnt:Id="">
+      <swnt:Port LogicalAddress="0F00" key="0F00" swnt:Number="0"/>
+    </swnt:Node>
+    <swnt:Link Id="idvalue0" NetworkPropagationDelay="0" Speed="0">
+      <swnt:Endpoint1 Port="0" swnt:Id=""/>
+      <swnt:Endpoint2 Port="0" swnt:Id=""/>
+    </swnt:Link>
+  </swnt:Subnet>
+</swnt:SpaceWireNetworkTopology>
